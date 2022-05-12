@@ -90,12 +90,12 @@ class User extends Authenticatable
     {
         $a=0;
        // if($this->likes()->where('status',NULL)->exists()) $a=1;
-        if($this->liked()->whereNull('status')->exists()) $a=1;
+        /*if($this->liked()->whereNull('status')->exists()) $a=1;
         if($a==1){
             return true;
         }else{
             return false;
-        }
+        }*/
        
     }
     
