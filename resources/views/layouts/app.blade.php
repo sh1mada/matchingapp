@@ -64,7 +64,7 @@
 	</head>
 	<body>
 	<div id="fh5co-page">
-		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+	
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 			@if (Auth::check())
 			<h1 id="fh5co-logo">{!! link_to_route('user_like.liked', "Matching",['id' => Auth::id()])!!}</a></h1>
