@@ -3,7 +3,7 @@
 @section("side")
 	<li>{!! link_to_route('users.action', "Action")!!}</li>
 	<li>{!! link_to_route('users.friend', "friends",['id' => Auth::id()])!!}</li>
-	<li>{!! link_to_route('users.chat', "chats",['id' => Auth::id()])!!}</li>
+	//<li>{!! link_to_route('users.chat', "chats",['id' => Auth::id()])!!}</li>
 	<li>{!! link_to_route('users.search',"search",['id' => Auth::id()])!!}</li>
 	
 	
