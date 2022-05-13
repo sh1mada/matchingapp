@@ -11,6 +11,7 @@
 @else
 	<li class="fh5co-active">{!! link_to_route('users.search',"search")!!}</li>
 	<li>{!!link_to_route('users.show', "my page",['user' => Auth::id()])!!}</li>
+	<li>{!! link_to_route('logout.get', 'Logout') !!}</li>
 @endif
 @endsection
 
@@ -20,11 +21,12 @@
 				<div class="row row-bottom-padded-md">
 					<div class="col-md-5 col-padding col-bottom" data-animate-effect="fadeInLeft">
 					    <div class="blog-entry mb-3">
-					    	<img class="img-responsive blog-img img-margin-bottom" src="{{asset('images/user.png')}}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+					    	<img class="img-responsive blog-img img-margin-bottom" src="{{asset($user->img_url)}}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					    </div>
 					</div>
 					<div class="col-md-7 animate-box" data-animate-effect="fadeInLeft">
 						<h2 class="fh5co-heading">自己紹介</h2>
+						
 						<p>{{$user->content}}</p>
 					</div>
 				</div>

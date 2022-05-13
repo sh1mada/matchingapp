@@ -409,7 +409,6 @@ figure figcaption {
 }
 #fh5co-hero .flexslider .slider-text > .slider-text-inner .btn {
   font-size: 12px;
-  text-transform: uppercase;
   letter-spacing: 2px;
   color: #fff;
   padding: 22px 30px !important;
@@ -502,7 +501,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 }
 .blog-entry .desc h3 {
   font-size: 15px;
-  text-transform: uppercase;
+
   margin-bottom: 10px;
   letter-spacing: 1px;
   line-height: auto;

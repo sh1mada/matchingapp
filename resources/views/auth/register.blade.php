@@ -30,10 +30,18 @@
                 </div>
                 
                 <div class="form-group">
+                    {!! Form::label('age', 'AGE')!!}
+                    {!! Form::text('age', null, ['class' => 'form-control']) !!}
+                    
+                </div>
+                
+                <div class="form-group">
                     {!! Form::label('gender', 'Gender')!!}
                     {!! Form::select('gender', ['man'=>'男性', 'woman'=>'女性'])!!}
                     
                 </div>
+                
+                
 
                 {!! Form::submit('Sign up', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}

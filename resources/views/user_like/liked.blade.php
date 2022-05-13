@@ -21,11 +21,11 @@
                 @if($user->is_liked())
 					<div class="col-md-4 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
 						<div class="blog-entry">
-							    <img class="rounded img-fluid blog-img" src="{{asset('images/user.png')}}" alt="user">
+							    <img class="rounded img-fluid blog-img" src="{{asset($user->img_url)}}" alt="user">
 	
 						       	<div class="desc">
-							    	<h3>{{$user->name}}</h3>
-                                    <p>{{$user->age}}</p>
+							    	<h1 style="margin-bottom:20px">{{$user->name}}</h1>
+                                    <h3>{{$user->age . " years old"}}</h3>
                                     {!! Form::open(['route' => ['user.approval', $user->id]]) !!}
                                     {!! Form::submit('Approval', ['class' => "btn btn-success btn-block"]) !!}
                                     {!! Form::close() !!}

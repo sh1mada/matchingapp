@@ -80,6 +80,12 @@ class UsersController extends Controller
         $user->hobby=$request->hobby;
         $user->residence=$request->residence;
         $user->content=$request->content;
+        $file=$request->file('image');
+        if(!empty($file)){
+             $upload = Cloudinary::upload($file->getRealPath());
+             $user->img_url=$upload->getSecurePath();
+            
+        }
         $user->save();
         
         return view('users.show',[

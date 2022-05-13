@@ -21,7 +21,7 @@
 	@foreach($messages as $message)
 	@if($message->pivot->user_id==$friend->id)
 		<div class="message-area you">
-			<div class="user-image" style="background-image: url({{asset('images/user.png')}});"></div>
+			<div class="user-image" style="background-image: url({{asset($user->img_url)}});"></div>
 			<div class="message">{{$message->pivot->message}}<span class="date">{{$message->pivot->created_at}}</span></div>
 		</div>
 	@else
@@ -37,12 +37,7 @@
         {!! Form::submit('send', ['class' => 'btn btn-primary btn-block submit']) !!}
     </div>
     {!! Form::close() !!}
-{{--	<div class="form">
-		<form>
-			<input type="text" class="text" placeholder="message">
-			<button type="submit" class="submit">send</button>
-		</form>
-	</div>--}}
+
 </div>
 
 @endsection

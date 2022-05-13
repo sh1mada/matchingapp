@@ -20,14 +20,15 @@
 					<div class="row col-padding animate-box" data-animate-effect="fadeInLeft">
 						<div class="blog-entry">
 						   <div class="col-md-4">
-							    <img class="" src="{{asset('images/user.png')}}" alt="user">
+							    <img class="" src="{{asset($user->img_url)}}" alt="user">
                             </div>
 						  <div class="col-md-8">
-							<h2>{{$user->name}}</h2>
-                            <p>{{$user->age}}</p>
-                            <h3 style="color : #808080">{{$user->get_messages(Auth::id(),$user->id)->last()->pivot->message}}</h3>
-							 {{--<a href="#" class="lead">Read More <i class="icon-arrow-right3"></i></a>--}}
-							 {{--{!! link_to_route('users.show', 'Read more',['user'=>$user->id])!!}--}}
+							<h1>{{$user->name}}</h1>
+                        	@if($user->message_null(Auth::id(),$user->id))
+                        	<h3 style="color : #808080">{{$user->get_messages(Auth::id(),$user->id)->last()->pivot->message}}</h3>
+                        	@else
+                            
+							@endif
 							  {!! link_to_route('chat.chatroom', 'chatroom',['id' => Auth::id() , 'friend_id' => $user->id]) !!}
 						   </div>
 						</div>

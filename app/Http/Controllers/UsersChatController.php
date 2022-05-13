@@ -27,7 +27,6 @@ class UsersChatController extends Controller
         
         $messages=$user->get_messages($id,$friend_id);
         
-       // $messages=$messages1->chat()->pivot()->orderBy('created_at')->get();
         
         return view('chat.chatroom',[
             'user' => $user,

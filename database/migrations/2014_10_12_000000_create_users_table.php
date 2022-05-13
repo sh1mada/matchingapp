@@ -24,9 +24,10 @@ class CreateUsersTable extends Migration
             $table->string('hobby')->nullable();
             $table->string('gender');
             $table->string('password');
-            $table->unsignedBigInteger('age')->nullable();
+            $table->string('age')->nullable();
             $table->string('residence')->nullable();
             $table->string('content')->nullable();
+            $table->string('img_url')->default('images/user.png');
             $table->rememberToken();
             $table->timestamps();
             

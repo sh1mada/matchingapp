@@ -24,6 +24,9 @@
 				<div class="row">
 					<div class="col-md-5">
 						<h1 class="text-center">{{$user->name}}</h1>
+						 {!! Form::model($user, ['route'=>['users.update', $user->id],'method'=>'put']) !!}
+						{{Form::file('image',['class'=>'btn']}}
+						
 					</div>
 					
 					<div class="col-md-7">

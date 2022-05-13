@@ -22,6 +22,7 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
+Route::post('upload','CloudinaryUploadController@store')->name('upload.store');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'users/{id}'], function () {
@@ -34,10 +35,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('likers', 'UsersController@likers')->name('users.likers');
         //Route::post('edit','UsersController@edit')->name('user.edit');
         //Route::get('editing', 'UsersController@editing')->name('mypage_edit');
-        Route::get('chat','UsersChatController@chat')->name('users.chat');
         Route::get('liked','UsersController@liked')->name('user_like.liked');
         Route::get('likes','UsersController@likes')->name('user_like.likes');
         Route::get('friend','UsersController@friend')->name('users.friend');
+        Route::get('chat','UsersChatController@chat')->name('users.chat');
         Route::get('chatroom/{friend_id}','UsersChatController@chatroom')->name('chat.chatroom');
         Route::post('chatroom/{friend_id}','UsersChatController@sendmessage')->name('chat.sendmessage');
     });

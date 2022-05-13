@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
      
     protected $fillable = [
-        'name', 'email', 'password','gender',
+        'name', 'email', 'password','gender','age',
     ];
 
     /**
@@ -57,8 +57,8 @@ class User extends Authenticatable
     
     public function chat(){
         return $this->belongsToMany(User::class, "chats", "user_id","friend_id")
-        ->withPivot(['message','created_at','updated_at'])
-        ->orderBy('pivot_created_at');
+        ->withPivot(['message','created_at','updated_at']);
+        
         
     }
     
@@ -88,14 +88,7 @@ class User extends Authenticatable
     
     public function is__null()
     {
-        $a=0;
-       // if($this->likes()->where('status',NULL)->exists()) $a=1;
-        /*if($this->liked()->whereNull('status')->exists()) $a=1;
-        if($a==1){
-            return true;
-        }else{
-            return false;
-        }*/
+        
        
     }
     
@@ -176,9 +169,12 @@ class User extends Authenticatable
     {
         return $this->chat()->where([['user_id',$user_id],['friend_id',$friend_id]])
                             ->orwhere([['user_id',$friend_id],['friend_id',$user_id]])
-                            ->get();
+                            ->orderBy('pivot_created_at')->get();
                             
     }
     
-    
+    public function message_null($user_id,$friend_id)
+    {
+        return $this->chat()->where([['user_id',$friend_id],['friend_id',$user_id]])->exists();
+    }
 }

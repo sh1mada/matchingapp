@@ -20,13 +20,13 @@
                 @if($user->is_friend())
 					<div class="col-md-4 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
 						<div class="blog-entry">
-							    <img class="rounded img-fluid blog-img" src="{{asset('images/user.png')}}" alt="user">
+							    <img class="rounded img-fluid blog-img" src="{{asset($user->img_url)}}" alt="user">
 	
 						       	<div class="desc">
-							    	<h3>{{$user->name}}</h3>
-                                    <p>{{$user->age}}</p>
+							    	<h1 style="margin-bottom:20px">{{$user->name}}</h1>
+                                    <h3>{{$user->age . " years old"}}</h3>
                                     {!! link_to_route('chat.chatroom', 'chatroom',['id' => Auth::id() , 'friend_id' => $user->id]) !!}
-                                    //chatに誘導
+                                    
 							    </div>
 						</div>
 					</div>
