@@ -1,5 +1,5 @@
 @if (Auth::id() != $user->id)
-    @if (Auth::user()->is_like($user->id))
+    @if (Auth::user()->is_like($user->id) || $user->is_likee(Auth::id()) )
         {{-- アンフォローボタンのフォーム --}}
       {{--  {!! Form::open(['route' => ['user.unlike', $user->id], 'method' => 'delete']) !!}
             {!! Form::submit('Unlike', ['class' => "btn btn-danger btn-block"]) !!}

@@ -5,11 +5,11 @@
 	<li>{!! link_to_route('users.friend', "friends",['id' => Auth::id()])!!}</li>
 	<li>{!! link_to_route('users.chat', "chats",['id' => Auth::id()])!!}</li>
 @if(Auth::id() == $user->id)
-	<li>{!! link_to_route('users.search',"search")!!}</li>
+	<li>{!! link_to_route('users.search', "search",['id' => Auth::id()])!!}</li>
 	<li class="fh5co-active">{!!link_to_route('users.show', "my page",['user' => Auth::id()])!!}</li>
 	<li>{!! link_to_route('logout.get', 'Logout') !!}</li>
 @else
-	<li class="fh5co-active">{!! link_to_route('users.search',"search")!!}</li>
+	<li >{!! link_to_route('users.search', "search",['id' => Auth::id()])!!}</li>
 	<li>{!!link_to_route('users.show', "my page",['user' => Auth::id()])!!}</li>
 	<li>{!! link_to_route('logout.get', 'Logout') !!}</li>
 @endif
@@ -39,12 +39,33 @@
 					    <table class="table table-striped table-bordered">
 					        <tbody>
 					        	<tr>
-					            	<th>趣味</th>
-					            	<td>{{$user->hobby}}</td>
+					            	<td>年齢</td>
+					            	<th>{{$user->age}}</th>
 					            </tr>
+					            <tr>
+					            	<td>誕生日</td>
+					            	<th>{{$user->birthday}}</th>
 					            </tr>
-					            	<th>居住地</th>
-					            	<td>{{$user->residence}}</td>
+					        	<tr>
+					            	<td>趣味</td>
+					            	<th>{{$user->hobby}}</th>
+					            </tr>
+					            <tr>
+					            	<td>居住地</td>
+					            	<th>{{$user->residence}}</th>
+					            </tr>
+					            <tr>
+					            	<td>好きな食べ物</td>
+					            	<th>{{$user->food}}</th>
+					            </tr>
+					            <tr>
+					            	<td>職業</td>
+					            	<th>{{$user->job}}</th>
+					            </tr>
+					            <tr>
+					            	<td>年収</td>
+					            	<th>{{$user->salary}}</th>
+					            </tr>
 					        </tbody>
 					        </table>
 

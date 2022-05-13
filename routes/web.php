@@ -13,7 +13,7 @@
 
 Route::get('/', 'UsersController@index');
 Route::resource('users', 'UsersController', ['only' => ['index' ,'show','edit','update']]);
-Route::get('search','UsersController@search')->name('users.search');
+Route::get('search/{id}','UsersController@search')->name('users.search');
 Route::get('action','UsersController@action')->name('users.action');
 
 
@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('rejection', 'UserLikeController@destroy')->name('user.rejection');
         Route::post('approval','UserLikeController@approval')->name('user.approval');
         //Route::delete('unlike', 'UserLikeController@destroy')->name('user.unlike');
-        
+        //Route::get('search','UsersController@search')->name('users.search');
         Route::get('likings', 'UsersController@likings')->name('users.likings');
         Route::get('likers', 'UsersController@likers')->name('users.likers');
         //Route::post('edit','UsersController@edit')->name('user.edit');

@@ -26,6 +26,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('age')->nullable();
             $table->string('residence')->nullable();
+            $table->string('food')->nullable();
+            $table->string('salary')->nullable();
+            $table->string('job')->nullable();
+            $table->string('birthday')->nullable();
             $table->string('content')->nullable();
             $table->string('img_url')->default('images/user.png');
             $table->rememberToken();

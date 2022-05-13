@@ -10,8 +10,14 @@ use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class UsersController extends Controller
 {
-    public function search(){
-        $users = User::All();
+    public function search($id){
+        $user=User::findOrFail($id);
+       if($user->gender == 'man'){
+            $users=User::where('gender','woman')->get();
+        }else{
+            $users=User::where('gender','man')->get();
+        }
+       
         return view('users.search' , [
                 'users'=>$users,
             ]);
@@ -80,6 +86,11 @@ class UsersController extends Controller
         $user->hobby=$request->hobby;
         $user->residence=$request->residence;
         $user->content=$request->content;
+        $user->birthday=$request->birthday;
+        $user->food=$request->food;
+        $user->salary=$request->salary;
+        $user->job=$request->job;
+        
         $file=$request->file('image');
         if(!empty($file)){
              $upload = Cloudinary::upload($file->getRealPath());

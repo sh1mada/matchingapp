@@ -4,7 +4,7 @@
 	<li>{!! link_to_route('users.action', "Action")!!}</li>
 	<li>{!! link_to_route('users.friend', "friends",['id' => Auth::id()])!!}</li>
 	<li>{!! link_to_route('users.chat', "chats",['id' => Auth::id()])!!}</li>
-	<li>{!! link_to_route('users.search',"search")!!}</li>
+	<li>{!! link_to_route('users.search',"search",['id' => Auth::id()])!!}</li>
 	
 	
 	<li class="fh5co-active">{!!link_to_route('users.show', "my page",['user' => Auth::id()])!!}</li>
@@ -37,6 +37,18 @@
 					    <table class="table table-striped table-bordered">
 					        <tbody>
 					        	<tr>
+					            	<td>年齢</td>
+					            	<th>{{$user->age}}</th>
+					            </tr>
+					        	<tr>
+					            	<th>誕生日</th>
+					            	<td>
+                                    <div class="form-group">
+                                        {!! Form::text('birthday', null, ['class' => 'form-control']) !!}
+                                    </div>
+					            	</td>
+					            </tr>
+					        	<tr>
 					            	<th>趣味</th>
 					            	<td>
                                     <div class="form-group">
@@ -44,12 +56,38 @@
                                     </div>
 					            	</td>
 					            </tr>
+					            <tr>
 					            	<th>居住地</th>
 					            	<td>
 					                <div class="form-group">
                                         {!! Form::text('residence', null, ['class' => 'form-control']) !!}
                                     </div>
 					            	</td>
+					            </tr>
+					            <tr>
+					            	<th>好きな食べ物</th>
+					            	<td>
+                                    <div class="form-group">
+                                        {!! Form::text('food', null, ['class' => 'form-control']) !!}
+                                    </div>
+					            	</td>
+					            </tr>
+					            <tr>
+					            	<th>職業</th>
+					            	<td>
+                                    <div class="form-group">
+                                        {!! Form::text('job', null, ['class' => 'form-control']) !!}
+                                    </div>
+					            	</td>
+					            </tr>
+					            <tr>
+					            	<th>年収</th>
+					            	<td>
+                                    <div class="form-group">
+                                        {!! Form::text('salary', null, ['class' => 'form-control']) !!}
+                                    </div>
+					            	</td>
+					            </tr>
 					        </tbody>
 					        </table>
 					</div>

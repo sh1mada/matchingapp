@@ -58,18 +58,20 @@ class User extends Authenticatable
     public function chat(){
         return $this->belongsToMany(User::class, "chats", "user_id","friend_id")
         ->withPivot(['message','created_at','updated_at']);
-        
-        
     }
-    
-    
-    
     
     public function is_like($userId)
     {
 
         return $this->likes()->where('like_id', $userId)->exists();
     }
+    
+    public function is_likee($userId)
+    {
+
+        return $this->likes()->where('like_id', $userId)->exists();
+    }
+    
     
     public function is_liked()
     {
@@ -85,6 +87,9 @@ class User extends Authenticatable
     {
         return $this->likes()->where('status',3)->doesntExist();
     }
+    
+    
+    
     
     public function is__null()
     {
@@ -173,8 +178,15 @@ class User extends Authenticatable
                             
     }
     
+    public function get_user()
+    {
+        return $this->likes()->where('status',null)->get();
+    }
+    
     public function message_null($user_id,$friend_id)
     {
         return $this->chat()->where([['user_id',$friend_id],['friend_id',$user_id]])->exists();
     }
+    
+
 }
