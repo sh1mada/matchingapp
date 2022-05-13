@@ -27,7 +27,6 @@
                         	@if($user->message_null(Auth::id(),$user->id))
                         	<h3 style="color : #808080">{{$user->get_messages(Auth::id(),$user->id)->last()->pivot->message}}</h3>
                         	@else
-                            
 							@endif
 							  {!! link_to_route('chat.chatroom', 'chatroom',['id' => Auth::id() , 'friend_id' => $user->id]) !!}
 						   </div>
