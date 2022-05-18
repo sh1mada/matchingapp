@@ -2,8 +2,8 @@
 
 @section("side")
 	<li>{!! link_to_route('user_like.liked', "Action",['id' => Auth::id()])!!}</li>
-	<li>{!! link_to_route('users.friend', "friends",['id' => Auth::id()])!!}</li>
-
+	<li>{!! link_to_route('users.friend', "friend",['id' => Auth::id()])!!}</li>
+	<li>{!! link_to_route('users.chat', "chat",['id' => Auth::id()])!!}</li>
 @if(Auth::id() == $user->id)
 	<li>{!! link_to_route('users.search', "search",['id' => Auth::id()])!!}</li>
 	<li class="fh5co-active">{!!link_to_route('users.show', "my page",['user' => Auth::id()])!!}</li>
